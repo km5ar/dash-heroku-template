@@ -194,6 +194,6 @@ app.layout = html.Div(
 )
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port = 8001, use_reloader=False) # different number 
-    #app.run_server(mode='inline', debug=True, port=8050)
+    app.run_server(debug=True, use_reloader=False) # different number 
+    #app.run_server(mode='inline', debug=True, port=8050) #  port = 8001,
     
