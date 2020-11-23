@@ -151,7 +151,7 @@ fig_facet.update(layout=dict(title=dict(x=0.5)))
 
 #app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
+server = app.server
 app.layout = html.Div(
     [
         html.H1("Exploring the 2019 General Social Survey: Differences in Sexes"),
