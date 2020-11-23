@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import dash
-#from jupyter_dash import JupyterDash
+from jupyter_dash import JupyterDash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -73,25 +73,25 @@ gss_bar = gss_bar.reset_index().rename({'sex':'Sex','income': 'Mean Income',
                                         'socioeconomic_index': 'Mean Socioeconomic Index', 
                                         'education': 'Mean Education Level' }, axis=1)
 
-gss_bar # basical version
+#gss_bar # basical version
 
 
 # web enable version of this table
 table = ff.create_table(gss_bar)
-table.show()
+#table.show()
 
 
 
 gss_bw_group = gss_clean.groupby(['sex', 'male_breadwinner'], sort=False)#.size()
 gss_bw = gss_bw_group.size().reset_index() 
-gss_bw
+#gss_bw
 
 
 gss_bar=px.bar(gss_bw, x='male_breadwinner', y=0, 
                color='sex', 
                barmode='group', 
                labels={'0':'Count', 'male_breadwinner':'Level of Agreement'})
-gss_bar
+#gss_bar
 
 gss_scatter = gss_clean[~gss_clean.sex.isnull()] # exclus null number in gss_clean sex column
 
@@ -108,12 +108,12 @@ fig_scatter = px.scatter(gss_scatter.head(200),
                              'education', 
                              'socioeconomic_index'])
 fig_scatter.update(layout=dict(title=dict(x=0.5)))
-fig_scatter.show()
+#fig_scatter.show()
 
 fig_box = px.box(gss_clean, x='income', y = 'sex', color = 'sex',
                    labels={'income':'Income', 'sex':''}, )
 fig_box.update_layout(showlegend=False)
-fig_box.show()
+#fig_box.show()
 
 
 fig_box2 = px.box(gss_clean, 
@@ -122,11 +122,11 @@ fig_box2 = px.box(gss_clean,
                   color = 'sex',
                    labels={'job_prestige':'Occupational Prestige', 'sex':''})
 fig_box2.update_layout(showlegend=False)
-fig_box2.show()
+#fig_box2.show()
 
 
 gss_facet= gss_clean[['income', 'sex', 'job_prestige']]  # subset the data 
-gss_facet
+#gss_facet
 
 gss_facet['job_prestige_cat'] = pd.cut(gss_facet.job_prestige, 
                                        bins=[15,26,37,48,59,70,81], 
@@ -134,7 +134,7 @@ gss_facet['job_prestige_cat'] = pd.cut(gss_facet.job_prestige,
 
 
 gss_facet=gss_facet.dropna() # drop all rows with any missing values in this dataframe
-gss_facet
+#gss_facet
 
 
 fig_facet = px.box(gss_facet, 
@@ -146,7 +146,7 @@ fig_facet = px.box(gss_facet,
             labels={'income':'Income', 
                     'sex':''})
 fig_facet.update(layout=dict(title=dict(x=0.5)))
-fig_facet.show()
+#fig_facet.show()
 
 
 #app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
@@ -194,6 +194,6 @@ app.layout = html.Div(
 )
 
 if __name__ == '__main__':
-    app.run_server(debug=True, use_reloader=False) # different number 
+    app.run_server(debug=True, port = 8001, use_reloader=False) # different number 
     #app.run_server(mode='inline', debug=True, port=8050)
     
