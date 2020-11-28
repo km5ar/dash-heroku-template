@@ -1,6 +1,11 @@
-## Deploying the Dashboard Using a Free Hosting Service
-If you want to distribute your dashboard to an audience, with a manager, or with a client, sharing a URL that links to the dashboard is better than sharing a notebook or a Python script file. The best free service for hosting dashboards is called [Heroku](https://www.heroku.com/home). It can be challenging to get a dashboard running on Heroku, but once you do, your dashboard will be accessable with a URL of the form *yourappname*.herokuapp.com. For example, the ANES dashboard we designed above is available at https://anespilot2019.herokuapp.com/.
+Exploring the 2019 General Social Survey: Differences in Sexes
+Gender Wage Gap
 
+According to the 2018 Census Bureau, women's median income is 82% of that for men, which means there is an 18% potential gender wage gap. However, there may also be other external factors besides gender. Amongst the reasons for the differences in pay between genders are differences in industries, education, etc. We wish to explore the differences in pay by gender, while controlling for other factors, in order to get a more acute view of the wage gap in context. (Reference: https://www.americanprogress.org/issues/women/reports/2020/03/24/482141/quick-facts-gender-wage-gap/)
+
+GSS
+
+The General Social Survey collects data from Americans on different demographic information, sentiments, and behaviors to track trends over time. The survey has data recorded from 1972. We decided to use the General Social Survey in the following dashboard to compare different attributes, such as occupational prestige and income, for both men and women. (Reference: http://www.gss.norc.org/About-The-GSS)
 If you want to deploy an app, the following steps worked for me.
 
 1. Make sure you have an account on [GitHub](https://github.com/). If you have an account, sign in. If you don't, create a [new Github account](https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
